@@ -16,8 +16,162 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h1>Video API</h1>
+					<div class="slide1-video">
+
+						<video controls poster="./examples/assets/poster.jpg">
+							<source data-src="./examples/assets/oceans.mp4" type="video/mp4">
+						</video>
+					</div>
+				</section>
+
+				<section id="fragments" data-background-video="./examples/assets/oceans.mp4" data-background-video-muted>
+					<h2>HTML5 video</h2>
+					<p>
+						For the first time the &lt;video&gt; element for the purpose of playing videos
+						was introduced with the <strong>HTML5 specification</strong>.
+					</p>
+					<p class="fragment">
+            HTML5 comes with elements for embedding rich media in documents — &lt;video&gt; and &lt;audio&gt; —
+						which in turn come with their own APIs for controlling playback, seeking, etc. This presentstion shows you
+						how to do common tasks such as creating custom playback controls.
+					</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>The &lt;video&gt; element</h2>
+						<br>
+					<pre><code>
+  <video src="oceans.mp4" controls>
+	  <p>Your browser doesn't support HTML5 video.
+	  Here is a <a href="oceans.mp4">link to the video</a> instead.
+    </p>
+  </video>
+					</code></pre>
+					</section>
+
+					<section>
+						<table>
+							<thead>
+								<tr>
+									<th></th>
+									<th><h4>Attributes</h4></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>src</td>
+									<td>The src (source) attribute contains a path to the video you want to embed.</td>
+								</tr>
+								<tr>
+									<td>controls</td>
+									<td>To control video playback. You must either use the controls attribute
+										to include the browser's own control interface, or build your interface using the appropriate JavaScript API.</td>
+								</tr>
+								<tr>
+									<td>The paragraph<br>inside the &lt;video&gt;</td>
+									<td>Fallback content that will be displayed if the browser accessing the page doesn't support the &lt;video&gt; element</td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+					<section>
+						<h4>Video example</h4>
+						<img src="./examples/assets/Screen1.jpg" alt="screen1">
+					</section>
+				</section>
+
+				<section>
+					<h4>Using multiple source formats to improve compatibility</h4>
+          <br>
+					<pre><code data-line-numbers="3-4">
+<video controls>
+	<source src="oceans.mp4" type="video/mp4">
+	<source src="oceans.webm" type="video/webm">
+	<p>Your browser doesn't support HTML5 video.
+		Here is a <a href="oceans.mp4">link to the video</a> instead.
+	</p>
+</video>
+					</code></pre>
+				</section>
+
+				<section>
+					<section>
+						<h3>Other &lt;video&gt; features</h3>
+					<br>
+					<pre style="width: 150%; margin-left: -200px;"><code data-line-numbers="2">
+<video width="800"	height="600" autoplay loop muted preload="auto"
+poster="poster.png" controls>
+	<source src="oceans.mp4" type="video/mp4">
+	<source src="oceans.webm" type="video/webm">
+  <p>Your browser does not support HTML video.
+			Here is a <a href="oceans.mp4">link to the video</a> instead.
+		</p>
+</video>
+					</code></pre>
+					</section>
+					<section>
+						<table>
+							<thead>
+								<tr>
+									<th></th>
+									<th><h4>Other &lt;video&gt; features</h4> <br></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>width / height</td>
+									<td>To control the video size either with these attributes or with CSS. Videos maintain the aspect ratio.</td>
+								</tr>
+								<tr>
+									<td>autoplay</td>
+									<td>Makes the video start playing right away, while the rest of the page is loading.</td>
+								</tr>
+								<tr>
+									<td>loop</td>
+									<td>Makes the video start playing again whenever it finishes.</td>
+								</tr>
+							</tbody>
+						</table>
+
+					</section>
+					<section>
+						<table>
+							<tbody>
+								<tr>
+									<td>muted</td>
+									<td>Causes the media to play with the sound turned off by default.</td>
+								</tr>
+								<tr>
+									<td>poster</td>
+									<td>The URL of an image which will be displayed before the video is played.</td>
+								</tr>
+								<tr>
+									<td>preload</td>
+									<td>Used for buffering large files; it can take one of three values:
+                    <ul>
+											<li><b>"none"</b> - does not buffer the file</li>
+											<li><b>"auto"</b> - buffers the media file</li>
+											<li><b>"metadata"</b> - buffers only the metadata for the file</li>
+										</ul>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+					</section>
+					<section>
+						<h4>Extra video features example</h4>
+						<img src="./examples/assets/Screen2.jpg" alt="screen2">
+					</section>
+
+
+				</section>
+
+				<section></section>
+
 			</div>
 		</div>
 
