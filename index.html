@@ -84,9 +84,9 @@
 				</section>
 
 				<section>
-					<h4>Using multiple source formats to improve compatibility</h4>
+					<h3>Using multiple source formats to improve compatibility</h3>
           <br>
-					<pre><code data-line-numbers="3-4">
+					<pre><code data-trim data-line-numbers="2-3">
 <video controls>
 	<source src="oceans.mp4" type="video/mp4">
 	<source src="oceans.webm" type="video/webm">
@@ -101,7 +101,7 @@
 					<section>
 						<h3>Other &lt;video&gt; features</h3>
 					<br>
-					<pre style="width: 150%; margin-left: -200px;"><code data-line-numbers="2">
+					<pre style="width: 150%; margin-left: -200px;"><code data-trim data-line-numbers="1">
 <video width="800"	height="600" autoplay loop muted preload="auto"
 poster="poster.png" controls>
 	<source src="oceans.mp4" type="video/mp4">
@@ -170,7 +170,92 @@ poster="poster.png" controls>
 
 				</section>
 
-				<section></section>
+				<section>
+					<section>
+						<h3>Displaying video text tracks</h3>
+						<br>
+						<h6>The &lt;track&gt; element</h6>
+						<p>
+							HTML5 allows us to specify subtitles for a video using the &lt;track&gt; element.
+						</p>
+						<pre><code data-trim data-line-numbers="4-6" style="width: fit-content; margin-left: -130px;">
+	<video controls preload="metadata">
+		<source src="./assets/oceans.mp4" type="video/mp4">
+		<source src="./assets/oceans.webm" type="video/webm">
+		<track label="English" kind="subtitles" srclang="en" src="./assets/transcript.vtt" default>
+		<track label="Deutsch" kind="subtitles" srclang="de" src="./assets/transcript-de.vtt">
+		<track label="Español" kind="subtitles" srclang="es" src="./assets/transcript-es.vtt">
+	</video>
+						</code></pre>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h6>WebVTT</h6>
+						<p>
+							The files that contain the actual subtitle data are simple text files that follow
+							a specified format, in this case the Web Video Text Tracks (WebVTT) format.
+						</p>
+
+							```html []
+							WEBVTT
+
+1
+00:00:02.230 --> 00:00:06.606
+Oceans are deep as well as wide.
+
+2
+00:00:07.739 --> 00:00:10.074
+Scientists estimate
+
+3
+00:00:10.739 --> 00:00:13.074
+that about one million species of animals
+...
+							```
+						</script>
+					</section>
+
+					<section>
+						<p>
+							WebVTT is a format for writing text files containing <b>cues</b>.
+							The most common cues are:
+						</p>
+						<table style="font-size: smaller;">
+							<tbody>
+								<tr>
+									<td>subtitles</td>
+									<td><span class="fragment highlight-red">Translations of foreign material</span>, for people who don't understand the words spoken in the audio.</td>
+								</tr>
+								<tr>
+									<td>captions</td>
+									<td>Synchronized transcriptions of dialog or descriptions of significant sounds, <span class="fragment highlight-red">to let people who can't hear the audio understand what is going on</span>.</td>
+								</tr>
+								<tr>
+									<td>timed descriptions</td>
+									<td><span class="fragment highlight-red">Text which should be spoken by the media player</span> in order to describe important visuals to blind or otherwise visually impaired users.</td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+					<section>
+						<h3>Video with subtitles example</h3>
+						<video controls poster="./examples/assets/poster.jpg">
+							<source src="./examples/assets/oceans.mp4" type="video/mp4">
+							<track label="English" kind="subtitles" srclang="en" src="./examples/assets/transcript.vtt" default>
+					 </video>
+					</section>
+				</section>
+
+				<section>
+					<h3>References:</h3>
+					<ol>
+						<li><a href="https://en.wikipedia.org/wiki/HTML5_video">HTML5 video</a></li>
+						<li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Video_and_audio_APIs">Video and Audio APIs</a></li>
+						<li><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content">Video and audio content</a></li>
+						<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video">&lt;video&gt;: The Video Embed element</a></li>
+					</ol>
+
+				</section>
 
 			</div>
 		</div>
